@@ -10,7 +10,7 @@ import 'screens/search_page.dart';
 import 'screens/sell_page.dart';
 import 'screens/yourAcc_page.dart';
 
-
+// import 'flutterflow/flutterflow_ui.dart';
 
 
 // main function
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
- home:  const LoginPage(),
+      home:  const HomePage(),
     );
   }
 }

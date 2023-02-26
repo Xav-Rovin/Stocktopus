@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+import 'createacc_page.dart';
+import 'home_page.dart';
 import 'buy_page.dart';
 import 'portfolio_page.dart';
 import 'records_page.dart';
@@ -18,6 +21,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //Colors
+  Color blueBg = Color.fromRGBO(69, 7, 132, 1);
+  Color roseLight = Color.fromRGBO(253, 176, 150, 1);
+  Color roseDark = Color.fromRGBO(229, 149, 142, 1);
+  Color goldAcc = Color.fromRGBO(255, 185, 2, 1);
   final items = [
     'Item 1',
     'Item 2',
@@ -32,9 +40,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: blueBg,
       bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.white,
-          color: Colors.deepPurple,
+          // backgroundColor: Colors.white,
+          // color: Colors.deepPurple,
+          backgroundColor: blueBg,
+          color: roseDark,
           animationDuration: const Duration(milliseconds: 300),
           items: <Widget>[
             Icon(
@@ -76,6 +87,7 @@ class _HomePageState extends State<HomePage> {
             }
           }),
       appBar: AppBar(
+        backgroundColor: roseDark,
         centerTitle: true,
         title: const Text('Home'),
         leading: IconButton(
@@ -100,20 +112,74 @@ class _HomePageState extends State<HomePage> {
               Container(
                 child: Column(
                   children: <Widget>[
-                    Text("Balance"),
-                    Row(
-                      children: <Widget>[
-                        Text("\$"),
-                        SizedBox(
-                          width: 200,
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: " ",
-                              fillColor: Colors.white,
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 15, 0, 5),
+                      child: Text(
+                        "Balance",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w600,
+                          height: 1.6356666088,
+                          letterSpacing: -0.3000000119,
+                          color: goldAcc,
+                        ),
+                      ),
+                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: <Widget>[
+                    //     Text("\$",
+                    //    textAlign:  TextAlign.center,
+                    //     style:  GoogleFonts.montserrat(
+                    //       fontSize:  37,
+                    //       fontWeight:  FontWeight.w700,
+                    //       height:  1.6356666153,
+                    //       letterSpacing:  -0.3000000119,
+                    //       color:  Color(0xffffffff),
+                    //     ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 200,
+                    //       child: TextFormField(
+                    //         decoration: const InputDecoration(
+                    //           labelText: "420.69",
+                    //           fillColor: Colors.white,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "\$",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.montserrat(
+                              fontSize: 45,
+                              fontWeight: FontWeight.w700,
+                              height: 1.6356666153,
+                              letterSpacing: -0.3000000119,
+                              color: goldAcc,
                             ),
                           ),
-                        ),
-                      ],
+                          Text(
+                            "\420.69",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.montserrat(
+                              fontSize: 37,
+                              fontWeight: FontWeight.w700,
+                              height: 1.6356666153,
+                              letterSpacing: -0.3000000119,
+                              color: goldAcc,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -125,35 +191,114 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => BuyPage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                      ),
-                      child: const Text(
-                        "Buy",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
+                    // ElevatedButton(
+                    //   onPressed: () {
+                    //     Navigator.of(context).push(
+                    //         MaterialPageRoute(builder: (context) => BuyPage()));
+                    //   },
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.green,
+                    //   ),
+                    //   child: const Text(
+                    //     "Buy",
+                    //     style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 30,
+                    //     ),
+                    //   ),
+                    // ),
+
+                    //Prototype
+
+                    Container(
+                      // buybuttonvzc (1:251)
+                      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: TextButton(
+                        onPressed: () {
+                          print('Buy Clicked');
+                        },
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                        ),
+                        child: Container(
+                          width: 120,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Color(0xffffffff),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x93000000),
+                                offset: Offset(0, 4),
+                                blurRadius: 2,
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Center(
+                              child: Text(
+                                'Buy',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.6356666088,
+                                  letterSpacing: -0.3000000119,
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => SellPage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+
+                    //-------------------
+                    // ElevatedButton(
+                    //   onPressed: () {
+                    //     Navigator.of(context).push(MaterialPageRoute(
+                    //         builder: (context) => SellPage()));
+                    //   },
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.red,
+                    //   ),
+                    //   child: const Text(
+                    //     "Sell",
+                    //     style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 30,
+                    //     ),
+                    //   ),
+                    // ),
+
+                    //Sell
+                    TextButton(
+                      // sellbuttonsoN (1:252)
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
                       ),
-                      child: const Text(
-                        "Sell",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
+                      child: Container(
+                        width: 120,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xffffffff)),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Center(
+                            child: Text(
+                              'Sell',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.montserrat(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                height: 1.6356666088,
+                                letterSpacing: -0.3000000119,
+                                color: Color(0xffffffff),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -164,31 +309,67 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text("Your Watchlist"),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 200,
-                      child: ListView.builder(
-                        itemCount: items.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            shape: RoundedRectangleBorder(
-                              
-                              borderRadius: BorderRadius.circular(20),
+                    Padding(
+                        padding: EdgeInsets.fromLTRB(60, 40, 60, 0),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Your Watchlist",
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.6356666088,
+                                  letterSpacing: -0.3000000119,
+                                  color: goldAcc,
+                                ),
+                              ),
                             ),
-                            
-                            title: Text(
-                              'Item ${items[index]}',
+                            SizedBox(
+                              width: double.infinity,
+                              height: 200,
+                              child: ListView.builder(
+                                itemCount: items.length,
+                                itemBuilder: (context, index) {
+                                  return ListTile(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    title: Text(
+                                      'Item ${items[index]}',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.6356666088,
+                                        letterSpacing: -0.3000000119,
+                                        color: goldAcc,
+                                      ),
+                                    ),
+                                    subtitle: Text(
+                                      'Item description',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal,
+                                        height: 1.6356666088,
+                                        letterSpacing: -0.3000000119,
+                                        color: roseLight,
+                                      ),
+                                    ),
+                                    trailing: IconButton(
+                                      icon: new Icon(Icons.more_vert),
+                                      onPressed: () {
+                                        //Additional Details
+                                        print("Additonal");
+                                      },
+                                      color: goldAcc,
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
-                            subtitle: Text('Item description'),
-                            trailing: Icon(Icons.more_vert),
-                          );
-                        },
-                      ),
-                    ),
+                          ],
+                        )),
                   ],
                 ),
               ),
